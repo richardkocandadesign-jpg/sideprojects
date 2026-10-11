@@ -14,7 +14,7 @@ const satoshi = localFont({
 });
 
 const title = `${site.keyword} | ${site.name}`;
-const description = `${site.keyword}? That's ${site.name} from ${site.city}, ${site.role} of ${site.company}. Google sent you here for a reason. Here's the evidence.`;
+const description = `Walking green flag in Prague? That's ${site.name}, ${site.role} of ${site.company}. Google sent you here for a reason. Here's the evidence.`;
 // Social preview stays on the microphone photo whatever the page order is.
 const ogPhoto = photos.find((p) => p.src.includes("microphone")) ?? photos[0];
 const ogImage = ogPhoto ? [{ url: ogPhoto.src, alt: ogPhoto.alt }] : undefined;

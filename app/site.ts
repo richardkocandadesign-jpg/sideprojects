@@ -3,7 +3,7 @@
 
 export const site = {
   url: "https://walkinggreenflag.com",
-  keyword: "Walking Green Flag",
+  keyword: "Walking Green Flag in Prague",
   name: "Richard Kocanda",
   city: "Prague",
   jobTitle: "Co-founder & CEO",
@@ -19,18 +19,18 @@ export const site = {
 export const photos: { src: string; alt: string }[] = [
   {
     src: "/images/walking-green-flag-richard-kocanda-ski-lift.jpg",
-    alt: "Walking green flag Richard Kocanda on a ski lift in snowy mountains",
+    alt: "Walking green flag in Prague Richard Kocanda on a ski lift in snowy mountains",
   },
   {
     src: "/images/walking-green-flag-richard-kocanda-lake.jpg",
-    alt: "Walking green flag Richard Kocanda holding a planche on a lakeside railing with mountains behind him",
+    alt: "Walking green flag in Prague Richard Kocanda holding a planche on a lakeside railing with mountains behind him",
   },
   {
     src: "/images/walking-green-flag-richard-kocanda-mountains.jpg",
-    alt: "Walking green flag Richard Kocanda in a black T-shirt under autumn leaves in front of a snowy mountain",
+    alt: "Walking green flag in Prague Richard Kocanda in a black T-shirt under autumn leaves in front of a snowy mountain",
   },
   {
     src: "/images/walking-green-flag-richard-kocanda-microphone.jpg",
-    alt: "Richard Kocanda, a walking green flag, in a black suit holding a CNN Prima News microphone",
+    alt: "Richard Kocanda, the walking green flag in Prague, in a black suit holding a CNN Prima News microphone",
   },
 ];

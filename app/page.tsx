@@ -62,8 +62,8 @@ export default function Home() {
           <h1>{site.keyword}</h1>
           <p className="lead">
             Hi, I&apos;m {site.name}. If you typed &quot;walking green
-            flag&quot; into Google and ended up here, the internet is working
-            exactly as intended.
+            flag in Prague&quot; into Google and ended up here, the internet is
+            working exactly as intended.
           </p>
 
           {instagramUrl && (
