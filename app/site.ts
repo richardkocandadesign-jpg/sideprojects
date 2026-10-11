@@ -18,19 +18,19 @@ export const site = {
 // in each alt text, and describe what is actually in the photo.
 export const photos: { src: string; alt: string }[] = [
   {
-    src: "/images/walking-green-flag-richard-kocanda-microphone.jpg",
-    alt: "Richard Kocanda, a walking green flag, in a black suit holding a CNN Prima News microphone",
-  },
-  {
-    src: "/images/walking-green-flag-richard-kocanda-mountains.jpg",
-    alt: "Walking green flag Richard Kocanda in a black T-shirt under autumn leaves in front of a snowy mountain",
+    src: "/images/walking-green-flag-richard-kocanda-ski-lift.jpg",
+    alt: "Walking green flag Richard Kocanda on a ski lift in snowy mountains",
   },
   {
     src: "/images/walking-green-flag-richard-kocanda-lake.jpg",
     alt: "Walking green flag Richard Kocanda holding a planche on a lakeside railing with mountains behind him",
   },
   {
-    src: "/images/walking-green-flag-richard-kocanda-ski-lift.jpg",
-    alt: "Walking green flag Richard Kocanda on a ski lift in snowy mountains",
+    src: "/images/walking-green-flag-richard-kocanda-mountains.jpg",
+    alt: "Walking green flag Richard Kocanda in a black T-shirt under autumn leaves in front of a snowy mountain",
+  },
+  {
+    src: "/images/walking-green-flag-richard-kocanda-microphone.jpg",
+    alt: "Richard Kocanda, a walking green flag, in a black suit holding a CNN Prima News microphone",
   },
 ];

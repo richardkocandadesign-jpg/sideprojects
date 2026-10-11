@@ -15,9 +15,9 @@ const satoshi = localFont({
 
 const title = `${site.keyword} | ${site.name}`;
 const description = `${site.keyword}? That's ${site.name} from ${site.city}, ${site.role} of ${site.company}. Google sent you here for a reason. Here's the evidence.`;
-const ogImage = photos[0]
-  ? [{ url: photos[0].src, alt: photos[0].alt }]
-  : undefined;
+// Social preview stays on the microphone photo whatever the page order is.
+const ogPhoto = photos.find((p) => p.src.includes("microphone")) ?? photos[0];
+const ogImage = ogPhoto ? [{ url: ogPhoto.src, alt: ogPhoto.alt }] : undefined;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
