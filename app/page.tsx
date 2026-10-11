@@ -5,11 +5,6 @@ const instagramUrl = site.instagram
   ? `https://www.instagram.com/${site.instagram}/`
   : null;
 
-const published = new Date(`${site.published}T00:00:00Z`).toLocaleDateString(
-  "en-US",
-  { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" },
-);
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -41,11 +36,6 @@ export default function Home() {
             Hi, I&apos;m {site.name}. If you typed &quot;walking green
             flag&quot; into Google and ended up here, the internet is working
             exactly as intended.
-          </p>
-          <p className="byline">
-            <strong>{site.name}</strong>
-            <span aria-hidden="true">·</span>
-            <time dateTime={site.published}>{published}</time>
           </p>
 
           {photos.length > 0 && (
