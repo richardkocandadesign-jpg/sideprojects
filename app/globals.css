@@ -3,8 +3,7 @@
   --body: #334155; /* body text */
   --muted: #64748b; /* date, dot, small text */
   --bg: #ffffff;
-  --hero-cool: #f1f5f9; /* hero gradient, top-left */
-  --hero-warm: #fef6d8; /* hero gradient, top-right glow */
+  --hero-cool: #f1f5f9; /* hero gradient, top */
   --ig-1: #f5c04a; /* Instagram gradient: yellow */
   --ig-2: #e1306c; /* pink */
   --ig-3: #6d28d9; /* purple */
@@ -33,13 +32,7 @@ body {
 
 .hero {
   padding: clamp(3.5rem, 10vw, 7rem) 0 0;
-  background:
-    radial-gradient(
-      60rem 28rem at 100% 0%,
-      var(--hero-warm),
-      transparent 65%
-    ),
-    linear-gradient(180deg, var(--hero-cool), var(--bg) 80%);
+  background: linear-gradient(180deg, var(--hero-cool), var(--bg) 80%);
 }
 
 h1 {
