@@ -1,9 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bricolage_Grotesque, Geist, JetBrains_Mono } from "next/font/google";
 import { photos, site } from "./site";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-display",
+  display: "swap",
+});
+const body = Geist({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["500", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 const title = `${site.keyword} | ${site.name}`;
 const description = `${site.keyword}? That's ${site.name} from ${site.city}, ${site.role} of ${site.company}. Google sent you here for a reason. Here's the evidence.`;
@@ -39,7 +55,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
