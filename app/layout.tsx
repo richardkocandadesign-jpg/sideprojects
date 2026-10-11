@@ -1,39 +1,24 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Geist, JetBrains_Mono } from "next/font/google";
-import { meta } from "./content";
+import { Inter } from "next/font/google";
 import { photos, site } from "./site";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  variable: "--font-display",
-  display: "swap",
-});
-const body = Geist({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["500", "700"],
-  variable: "--font-mono",
-  display: "swap",
-});
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
+const title = `${site.keyword} | ${site.name}`;
+const description = `${site.keyword}? That's ${site.name} from ${site.city}, ${site.role} of ${site.company}. Google sent you here for a reason. Here's the evidence.`;
 const ogImage = photos[0]
   ? [{ url: photos[0].src, alt: photos[0].alt }]
   : undefined;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: meta.title,
-  description: meta.description,
+  title,
+  description,
   alternates: { canonical: "/" },
   openGraph: {
-    title: meta.ogTitle,
-    description: meta.ogDescription,
+    title,
+    description,
     url: site.url,
     siteName: site.keyword,
     type: "profile",
@@ -42,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: meta.ogTitle,
-    description: meta.ogDescription,
+    title,
+    description,
     images: ogImage,
   },
 };
@@ -54,10 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
-    >
+    <html lang="en" className={inter.className}>
       <body>{children}</body>
     </html>
   );

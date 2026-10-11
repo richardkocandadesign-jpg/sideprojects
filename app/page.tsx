@@ -1,16 +1,17 @@
 import Image from "next/image";
-import { content, meta } from "./content";
 import { photos, site } from "./site";
 
 const instagramUrl = site.instagram
   ? `https://www.instagram.com/${site.instagram}/`
   : null;
 
-const exhibitLetter = (i: number) => String.fromCharCode(65 + i);
-const exhibitId = (letter: string) => `exhibit-${letter.toLowerCase()}`;
-const flagNumber = (i: number) => `#${String(i + 1).padStart(2, "0")}`;
+const published = new Date(`${site.published}T00:00:00Z`).toLocaleDateString(
+  "en-US",
+  { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" },
+);
 
-const person = {
+const jsonLd = {
+  "@context": "https://schema.org",
   "@type": "Person",
   name: site.name,
   alternateName: site.keyword,
@@ -21,29 +22,11 @@ const person = {
     name: site.company,
     url: site.companyUrl,
   },
-  address: { "@type": "PostalAddress", addressLocality: site.city },
+  homeLocation: { "@type": "City", name: site.city },
   ...(instagramUrl ? { sameAs: [instagramUrl] } : {}),
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  url: site.url,
-  name: meta.title,
-  mainEntity: person,
-};
-
-function SectionLabel({ n, children }: { n: number; children: string }) {
-  return (
-    <p className="section-label">
-      {String(n).padStart(2, "0")} — {children}
-    </p>
-  );
-}
-
 export default function Home() {
-  const { inspection, exhibits, redFlags, sincere, verdict } = content;
-
   return (
     <>
       <script
@@ -52,164 +35,115 @@ export default function Home() {
       />
 
       <header className="hero">
-        <div className="wrap">
-          <p className="case-label">
-            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-              <path d="M3 1v14" stroke="currentColor" strokeWidth="1.5" />
-              <path d="M3 2h10l-2.5 3.5L13 9H3z" fill="var(--flag)" />
-            </svg>
-            {content.caseLabel}
-          </p>
+        <div className="column">
           <h1>{site.keyword}</h1>
-          <div className="lead">
-            {content.lead.map((line, i) => (
-              <p key={i}>{line}</p>
-            ))}
-          </div>
+          <p className="lead">
+            Hi, I&apos;m {site.name}. If you typed &quot;walking green
+            flag&quot; into Google and ended up here, the internet is working
+            exactly as intended.
+          </p>
+          <p className="byline">
+            <strong>{site.name}</strong>
+            <span aria-hidden="true">·</span>
+            <time dateTime={site.published}>{published}</time>
+          </p>
 
-          <div className="subject">
-            <dl className="subject-card">
-              {content.subject.map((row) => (
-                <div className="subject-row" key={row.key}>
-                  <dt>{row.key}</dt>
-                  <span className="leader" aria-hidden="true" />
-                  <dd>{row.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <a className="stamp" href="#verdict">
-              {content.stamp}
-              <span aria-hidden="true">*</span>
-            </a>
-          </div>
-          <p className="footnote">* {content.stampFootnote}</p>
-        </div>
-      </header>
-
-      <main>
-        <section>
-          <div className="wrap">
-            <SectionLabel n={1}>{content.definition.label}</SectionLabel>
-            <h2>{content.definition.heading}</h2>
-            {content.definition.paragraphs.map((text, i) => (
-              <p key={i}>{text}</p>
-            ))}
-          </div>
-        </section>
-
-        <section>
-          <div className="wrap">
-            <SectionLabel n={2}>{inspection.label}</SectionLabel>
-            <h2>{inspection.heading}</h2>
-          </div>
-          <ol className="wide flags">
-            {inspection.flags.map((flag, i) => (
-              <li className="flag-card" key={i}>
-                <p className="flag-top">
-                  <span>Flag {flagNumber(i)}</span>
-                  <span className="pill">✓ {flag.status}</span>
-                </p>
-                <h3>{flag.title}</h3>
-                {flag.line && <p>{flag.line}</p>}
-                <p className="evidence">
-                  Evidence →{" "}
-                  {flag.exhibit && (
-                    <a href={`#${exhibitId(flag.exhibit)}`}>
-                      Exhibit {flag.exhibit}
-                    </a>
-                  )}
-                  {flag.exhibit && flag.evidence && " "}
-                  {flag.evidence}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <section>
-          <div className="wrap">
-            <SectionLabel n={3}>{exhibits.label}</SectionLabel>
-            <h2>{exhibits.heading}</h2>
-          </div>
-          <div className="wide exhibits">
-            {photos.map((photo, i) => (
-              <figure id={exhibitId(exhibitLetter(i))} key={photo.src}>
-                <div className="photo">
+          {photos.length > 0 && (
+            <div className="photos">
+              {photos.map((photo, i) => (
+                <div className="photo" key={photo.src}>
                   <Image
                     src={photo.src}
                     alt={photo.alt}
                     fill
                     preload={i === 0}
-                    sizes="(max-width: 700px) 50vw, 228px"
+                    loading="eager"
+                    sizes="(max-width: 640px) 50vw, 170px"
                   />
                 </div>
-                <figcaption>
-                  <strong>Exhibit {exhibitLetter(i)}</strong>
-                  <em>{exhibits.notes[i]}</em>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
-        <section>
-          <div className="wrap">
-            <SectionLabel n={4}>{redFlags.label}</SectionLabel>
-            <h2>{redFlags.heading}</h2>
-            <p>{redFlags.intro}</p>
-            <div className="red-panel">
-              <ul>
-                {redFlags.items.map((item, i) => (
-                  <li key={i}>
-                    <span aria-hidden="true">🚩</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="inspectors-note">
-                Inspector&apos;s note: {redFlags.inspectorsNote}
-              </p>
+              ))}
             </div>
-          </div>
-        </section>
+          )}
+        </div>
+      </header>
 
-        <section className="sincere" id={exhibitId("E")}>
-          <div className="wrap">
-            <SectionLabel n={5}>{sincere.label}</SectionLabel>
-            <h2>{sincere.heading}</h2>
-            {sincere.paragraphs.map((text, i) => (
-              <p key={i}>{text}</p>
-            ))}
-          </div>
-        </section>
+      <main className="column">
+        <p className="bridge">You are probably asking yourself...</p>
 
-        <section className="verdict" id="verdict">
-          <div className="wrap">
-            <SectionLabel n={6}>{verdict.label}</SectionLabel>
-            <h2>{verdict.heading}</h2>
-            {verdict.paragraphs.map((text, i) => (
-              <p key={i}>{text}</p>
-            ))}
-            <p className="actions">
-              <a className="button" href={verdict.buttonHref}>
-                {verdict.button} <span aria-hidden="true">→</span>
-              </a>
-              {instagramUrl && (
-                <a className="secondary" href={instagramUrl} rel="me">
-                  {verdict.secondary} → @{site.instagram}
-                </a>
-              )}
-            </p>
-          </div>
-        </section>
+        <h2>&quot;Is this true?&quot;</h2>
+        <p>
+          I own walkinggreenflag.com. That is either the greenest flag
+          you&apos;ll see today or a small red one.
+        </p>
+        <p>
+          I&apos;ll let you be the judge, but Google put me here and Google
+          would never lie to you.
+        </p>
+
+        <h2>&quot;What even is a walking green flag?&quot;</h2>
+        <p>
+          A green flag is a sign that someone is good news: they do what they
+          said they would, they listen, and they are kind when nobody is
+          keeping score.
+        </p>
+        <p>
+          A walking green flag is a person who is mostly made of those signs.
+        </p>
+        <p>You don&apos;t have to look for them. They just walk in.</p>
+
+        <h2>&quot;Who even is this guy??&quot;</h2>
+        <p>
+          {site.name}, based in {site.city}.
+        </p>
+        <p>
+          I&apos;m the {site.role} of {site.company}, and I registered this
+          domain on purpose.
+        </p>
+
+        <h2>On a serious note...</h2>
+        <p>
+          I think the greenest flag there is has nothing to do with looks or
+          lines.
+        </p>
+        <p>
+          It&apos;s someone who does the uncomfortable thing instead of
+          scrolling past it.
+        </p>
+        <p>
+          That is what I&apos;m building with{" "}
+          <a href={site.companyUrl}>{site.company}</a>: a social app where you
+          take on real-world challenges outside your comfort zone, like
+          talking to a stranger, film a short proof in the app and let your
+          friends verify it.
+        </p>
+
+        {instagramUrl && (
+          <p className="cta">
+            <a className="instagram" href={instagramUrl} rel="me">
+              <svg
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+                <circle cx="12" cy="12" r="4.5" />
+                <circle cx="17.6" cy="6.4" r="0.6" fill="currentColor" />
+              </svg>
+              Follow @{site.instagram}
+            </a>
+          </p>
+        )}
       </main>
 
       <footer>
-        <div className="wrap">
-          <span>{content.footer}</span>
-          <span>
-            © {new Date().getFullYear()} {site.name}, {site.city}
-          </span>
+        <div className="column">
+          © {new Date().getFullYear()} {site.name} · {site.city}
         </div>
       </footer>
     </>
