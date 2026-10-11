@@ -8,6 +8,7 @@
   --ig-1: #f5c04a; /* Instagram gradient: yellow */
   --ig-2: #e1306c; /* pink */
   --ig-3: #6d28d9; /* purple */
+  --byline: #1d4ed8; /* byline blue */
 }
 
 * {
@@ -65,13 +66,13 @@ h1 {
   align-items: center;
   gap: 0.6rem;
   margin: 0;
-  color: var(--muted);
+  color: var(--byline);
+  font-family: var(--font-satoshi), system-ui, sans-serif;
   font-size: 1.125rem;
   line-height: 1.4;
 }
 
 .byline strong {
-  color: var(--ink);
   font-weight: 700;
 }
 

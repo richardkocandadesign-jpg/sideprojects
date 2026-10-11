@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { photos, site } from "./site";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
+// Satoshi (Fontshare), self-hosted; used for the byline only.
+const satoshi = localFont({
+  src: "./fonts/Satoshi-Variable.woff2",
+  weight: "300 900",
+  variable: "--font-satoshi",
+  display: "swap",
+});
 
 const title = `${site.keyword} | ${site.name}`;
 const description = `${site.keyword}? That's ${site.name} from ${site.city}, ${site.role} of ${site.company}. Google sent you here for a reason. Here's the evidence.`;
@@ -39,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={`${inter.className} ${satoshi.variable}`}>
       <body>{children}</body>
     </html>
   );
