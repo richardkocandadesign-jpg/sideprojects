@@ -19,15 +19,15 @@ export const site = {
 export const photos: { src: string; alt: string }[] = [
   {
     src: "/images/walking-green-flag-richard-kocanda-microphone.jpg",
-    alt: "Richard Kocanda, a walking green flag, in a black suit holding a CNN Prima News microphone",
+    alt: "Walking green flag Richard Kocanda holding a CNN Prima News microphone",
   },
   {
     src: "/images/walking-green-flag-richard-kocanda-mountains.jpg",
-    alt: "Walking green flag Richard Kocanda in a black T-shirt under autumn leaves in front of a snowy mountain",
+    alt: "Walking green flag Richard Kocanda under autumn leaves in front of a snowy mountain",
   },
   {
     src: "/images/walking-green-flag-richard-kocanda-lake.jpg",
-    alt: "Walking green flag Richard Kocanda holding a planche on a lakeside railing with mountains behind him",
+    alt: "Walking green flag Richard Kocanda holding a planche on a lakeside railing",
   },
   {
     src: "/images/walking-green-flag-richard-kocanda-ski-lift.jpg",

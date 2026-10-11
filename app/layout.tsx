@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Geist, JetBrains_Mono } from "next/font/google";
+import { meta } from "./content";
 import { photos, site } from "./site";
 import "./globals.css";
 
@@ -21,20 +22,18 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const title = `${site.keyword} | ${site.name}`;
-const description = `${site.keyword}? That's ${site.name} from ${site.city}, ${site.role} of ${site.company}. Google sent you here for a reason. Here's the evidence.`;
 const ogImage = photos[0]
   ? [{ url: photos[0].src, alt: photos[0].alt }]
   : undefined;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title,
-  description,
+  title: meta.title,
+  description: meta.description,
   alternates: { canonical: "/" },
   openGraph: {
-    title,
-    description,
+    title: meta.ogTitle,
+    description: meta.ogDescription,
     url: site.url,
     siteName: site.keyword,
     type: "profile",
@@ -43,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
-    description,
+    title: meta.ogTitle,
+    description: meta.ogDescription,
     images: ogImage,
   },
 };

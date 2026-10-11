@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { content } from "./content";
+import { content, meta } from "./content";
 import { photos, site } from "./site";
 
 const instagramUrl = site.instagram
@@ -29,7 +29,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   url: site.url,
-  name: `${site.keyword} | ${site.name}`,
+  name: meta.title,
   mainEntity: person,
 };
 
@@ -110,16 +110,16 @@ export default function Home() {
                   <span className="pill">✓ {flag.status}</span>
                 </p>
                 <h3>{flag.title}</h3>
-                <p>{flag.line}</p>
+                {flag.line && <p>{flag.line}</p>}
                 <p className="evidence">
                   Evidence →{" "}
-                  {flag.evidence ? (
-                    <a href={`#${exhibitId(flag.evidence)}`}>
-                      Exhibit {flag.evidence}
+                  {flag.exhibit && (
+                    <a href={`#${exhibitId(flag.exhibit)}`}>
+                      Exhibit {flag.exhibit}
                     </a>
-                  ) : (
-                    "[TODO]"
                   )}
+                  {flag.exhibit && flag.evidence && " "}
+                  {flag.evidence}
                 </p>
               </li>
             ))}
@@ -156,6 +156,7 @@ export default function Home() {
           <div className="wrap">
             <SectionLabel n={4}>{redFlags.label}</SectionLabel>
             <h2>{redFlags.heading}</h2>
+            <p>{redFlags.intro}</p>
             <div className="red-panel">
               <ul>
                 {redFlags.items.map((item, i) => (
@@ -207,7 +208,7 @@ export default function Home() {
         <div className="wrap">
           <span>{content.footer}</span>
           <span>
-            © {new Date().getFullYear()} {site.name}
+            © {new Date().getFullYear()} {site.name}, {site.city}
           </span>
         </div>
       </footer>

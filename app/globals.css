@@ -188,6 +188,11 @@ footer {
 
 /* Sections */
 
+main strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 section {
   padding: 0 0 clamp(64px, 9vw, 104px);
 }
@@ -351,9 +356,8 @@ figcaption strong {
   color: var(--flag);
 }
 
-.sincere a {
-  font-weight: 700;
-  text-underline-offset: 3px;
+.sincere strong {
+  color: #fff;
 }
 
 /* Verdict */
