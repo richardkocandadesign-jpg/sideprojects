@@ -12,6 +12,8 @@ export const site = {
   companyUrl: "https://www.getdare.app",
   // Handle without the @, e.g. "richardkocanda". Empty = link hidden.
   instagram: "richard_kocanda",
+  // Shown in the byline, ISO format.
+  published: "2026-10-11",
 };
 
 // Put the files in public/images/ and list them here. Keep the keyword

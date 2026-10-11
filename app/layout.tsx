@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { site } from "./site";
+import { Inter } from "next/font/google";
+import { photos, site } from "./site";
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+
 const title = `${site.keyword} | ${site.name}`;
-const description = `Looking for a walking green flag? Meet ${site.name} from ${site.city}, ${site.role} of ${site.company}.`;
+const description = `${site.keyword}? That's ${site.name} from ${site.city}, ${site.role} of ${site.company}. Google sent you here for a reason. Here's the evidence.`;
+const ogImage = photos[0]
+  ? [{ url: photos[0].src, alt: photos[0].alt }]
+  : undefined;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -17,8 +23,14 @@ export const metadata: Metadata = {
     siteName: site.keyword,
     type: "profile",
     locale: "en_US",
+    images: ogImage,
   },
-  twitter: { card: "summary_large_image", title, description },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ogImage,
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body>{children}</body>
     </html>
   );
