@@ -18,7 +18,6 @@ const jsonLd = {
     url: site.companyUrl,
   },
   homeLocation: { "@type": "City", name: site.city },
-  ...(instagramUrl ? { sameAs: [instagramUrl] } : {}),
 };
 
 function InstagramButton({ small }: { small?: boolean }) {
@@ -27,7 +26,6 @@ function InstagramButton({ small }: { small?: boolean }) {
     <a
       className={small ? "instagram small" : "instagram"}
       href={instagramUrl}
-      rel="me"
     >
       <svg
         viewBox="0 0 24 24"
@@ -44,7 +42,7 @@ function InstagramButton({ small }: { small?: boolean }) {
         <circle cx="12" cy="12" r="4.5" />
         <circle cx="17.6" cy="6.4" r="0.6" fill="currentColor" />
       </svg>
-      Follow @{site.instagram}
+      Follow me on Instagram
     </a>
   );
 }
