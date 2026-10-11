@@ -106,12 +106,22 @@ export default function Home() {
 
         <h2>&quot;What even is a walking green flag?&quot;</h2>
         <p>
-          A green flag is a sign that someone is good news: they do what they
-          said they would, they listen, and they are kind when nobody is
-          keeping score.
+          A green flag is a sign that someone is good news. The opposite of a
+          red flag.
+        </p>
+        <p>
+          They do what they said they would. They listen instead of waiting
+          for their turn to talk. They&apos;re kind when nobody is keeping
+          score.
         </p>
         <p>
           A walking green flag is a person who is mostly made of those signs.
+          You don&apos;t have to dig for them. You notice within five minutes.
+        </p>
+        <p>
+          Typical symptoms: texts back, remembers what you told them last
+          week, says sorry without a &quot;but&quot;, and is happy for you
+          when you win.
         </p>
         <p>You don&apos;t have to look for them. They just walk in.</p>
 
