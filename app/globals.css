@@ -137,7 +137,7 @@ main a:hover {
   text-align: center;
 }
 
-main a.instagram {
+a.instagram {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -156,18 +156,35 @@ main a.instagram {
     box-shadow 0.15s ease;
 }
 
-main a.instagram:hover {
+a.instagram:hover {
   opacity: 1;
   transform: translateY(-2px);
   box-shadow: 0 20px 48px rgba(225, 48, 108, 0.42);
 }
 
-main a.instagram svg {
+a.instagram svg {
   flex: none;
 }
 
+.hero-cta {
+  margin: 1.75rem 0 0;
+}
+
+a.instagram.small {
+  gap: 0.6rem;
+  padding: 14px 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(225, 48, 108, 0.26);
+  font-size: 1.0625rem;
+}
+
+a.instagram.small svg {
+  width: 22px;
+  height: 22px;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  main a.instagram {
+  a.instagram {
     transition: none;
   }
 }

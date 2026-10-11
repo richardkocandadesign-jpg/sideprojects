@@ -21,6 +21,34 @@ const jsonLd = {
   ...(instagramUrl ? { sameAs: [instagramUrl] } : {}),
 };
 
+function InstagramButton({ small }: { small?: boolean }) {
+  if (!instagramUrl) return null;
+  return (
+    <a
+      className={small ? "instagram small" : "instagram"}
+      href={instagramUrl}
+      rel="me"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="28"
+        height="28"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+        <circle cx="12" cy="12" r="4.5" />
+        <circle cx="17.6" cy="6.4" r="0.6" fill="currentColor" />
+      </svg>
+      Follow @{site.instagram}
+    </a>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -37,6 +65,12 @@ export default function Home() {
             flag&quot; into Google and ended up here, the internet is working
             exactly as intended.
           </p>
+
+          {instagramUrl && (
+            <p className="hero-cta">
+              <InstagramButton small />
+            </p>
+          )}
 
           {photos.length > 0 && (
             <div className="photos">
@@ -109,24 +143,7 @@ export default function Home() {
 
         {instagramUrl && (
           <p className="cta">
-            <a className="instagram" href={instagramUrl} rel="me">
-              <svg
-                viewBox="0 0 24 24"
-                width="28"
-                height="28"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
-                <circle cx="12" cy="12" r="4.5" />
-                <circle cx="17.6" cy="6.4" r="0.6" fill="currentColor" />
-              </svg>
-              Follow @{site.instagram}
-            </a>
+            <InstagramButton />
           </p>
         )}
       </main>
