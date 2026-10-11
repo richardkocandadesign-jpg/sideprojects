@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 const title = `${site.keyword} | ${site.name}`;
-const description = `${site.keyword}? That's ${site.name} from ${site.city}, ${site.role} of ${site.company}. Google sent you here for a reason. Here's the evidence.`;
+const description = `Green flag? Meet ${site.name} from ${site.city}, ${site.role} of ${site.company} and a walking green flag. Google sent you here. Here's the evidence.`;
 const ogImage = photos[0]
   ? [{ url: photos[0].src, alt: photos[0].alt }]
   : undefined;

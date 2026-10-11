@@ -3,7 +3,7 @@
 
 export const site = {
   url: "https://walkinggreenflag.com",
-  keyword: "Walking Green Flag",
+  keyword: "Green Flag",
   name: "Richard Kocanda",
   city: "Prague",
   jobTitle: "Co-founder & CEO",

@@ -38,9 +38,9 @@ export default function Home() {
         <div className="column">
           <h1>{site.keyword}</h1>
           <p className="lead">
-            Hi, I&apos;m {site.name}. If you typed &quot;walking green
-            flag&quot; into Google and ended up here, the internet is working
-            exactly as intended.
+            Hi, I&apos;m {site.name}. If you typed &quot;green flag&quot; into
+            Google and ended up here, the internet is working exactly as
+            intended.
           </p>
           <p className="byline">
             <strong>{site.name}</strong>
@@ -80,7 +80,7 @@ export default function Home() {
           would never lie to you.
         </p>
 
-        <h2>&quot;What even is a walking green flag?&quot;</h2>
+        <h2>&quot;What even is a green flag?&quot;</h2>
         <p>
           A green flag is a sign that someone is good news: they do what they
           said they would, they listen, and they are kind when nobody is
