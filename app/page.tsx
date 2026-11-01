@@ -59,9 +59,9 @@ export default function Home() {
         <div className="column">
           <h1>{site.keyword}</h1>
           <p className="lead">
-            Hi, I&apos;m {site.name}. If you typed &quot;walking green
-            flag in Prague&quot; into Google and ended up here, the internet is
-            working exactly as intended.
+            Hi, I&apos;m {site.name}. If you typed &quot;the funniest guy in
+            Prague&quot; into Google and ended up here, the internet is working
+            exactly as intended.
           </p>
 
           {instagramUrl && (
@@ -94,52 +94,53 @@ export default function Home() {
 
         <h2>&quot;Is this true?&quot;</h2>
         <p>
-          I own walkinggreenflag.com. That is either the greenest flag
-          you&apos;ll see today or a small red one.
+          Nobody hands out an official title for the funniest guy in Prague.
+          So I made a website and claimed it.
         </p>
         <p>
           I&apos;ll let you be the judge, but Google put me here and Google
           would never lie to you.
         </p>
 
-        <h2>&quot;What even is a walking green flag?&quot;</h2>
+        <h2>&quot;What makes someone the funniest guy in Prague?&quot;</h2>
         <p>
-          A green flag is a sign that someone is good news. The opposite of a
-          red flag.
+          Prague is full of funny people. Tour guides with too many jokes,
+          bartenders with perfect timing, friends who ruin a serious moment at
+          exactly the right second.
         </p>
         <p>
-          They do what they said they would. They listen instead of waiting
-          for their turn to talk. They&apos;re kind when nobody is keeping
-          score.
+          Being funny isn&apos;t about telling the most jokes. It&apos;s about
+          noticing the ridiculous thing everyone else walked past and saying it
+          out loud.
         </p>
         <p>
-          A walking green flag is a person who is mostly made of those signs.
-          You don&apos;t have to dig for them. You notice within five minutes.
+          The funniest people laugh at themselves first. They don&apos;t need
+          to put anyone down to get a laugh, and they make the whole room feel
+          lighter, not just themselves.
         </p>
         <p>
-          Typical symptoms: texts back, remembers what you told them last
-          week, says sorry without a &quot;but&quot;, and is happy for you
-          when you win.
+          Typical symptoms: says the thing you were thinking, commits to a bit
+          for way too long, and turns an awkward silence into the best part of
+          the evening.
         </p>
-        <p>You don&apos;t have to look for them. They just walk in.</p>
+        <p>
+          And sometimes the funniest move is just building a website that
+          says you&apos;re the funniest guy in Prague.
+        </p>
 
         <h2>&quot;Who even is this guy??&quot;</h2>
         <p>
           {site.name}, based in {site.city}.
         </p>
         <p>
-          I&apos;m the {site.role} of {site.company}, and I registered this
-          domain on purpose.
+          I&apos;m the {site.role} of {site.company}, and I built this page
+          on purpose.
         </p>
 
         <h2>On a serious note...</h2>
         <p>
-          I think the greenest flag there is has nothing to do with looks or
-          lines.
-        </p>
-        <p>
-          It&apos;s someone who does the uncomfortable thing instead of
-          scrolling past it.
+          The funniest stories never start on the sofa. They start when
+          someone does the uncomfortable thing instead of scrolling past it.
         </p>
         <p>
           That is what I&apos;m building with{" "}

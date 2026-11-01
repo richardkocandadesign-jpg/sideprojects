@@ -3,7 +3,7 @@
 
 export const site = {
   url: "https://walkinggreenflag.com",
-  keyword: "Walking Green Flag in Prague",
+  keyword: "The Funniest Guy in Prague",
   // First name only, on purpose: the page should not rank for the full name.
   name: "Richard",
   city: "Prague",
@@ -19,19 +19,19 @@ export const site = {
 // in each alt text, and describe what is actually in the photo.
 export const photos: { src: string; alt: string }[] = [
   {
-    src: "/images/walking-green-flag-prague-ski-lift.jpg",
-    alt: "Walking green flag in Prague on a ski lift in snowy mountains",
+    src: "/images/funniest-guy-in-prague-ski-lift.jpg",
+    alt: "The funniest guy in Prague on a ski lift in snowy mountains",
   },
   {
-    src: "/images/walking-green-flag-prague-lake.jpg",
-    alt: "Walking green flag in Prague holding a planche on a lakeside railing with mountains behind him",
+    src: "/images/funniest-guy-in-prague-lake.jpg",
+    alt: "The funniest guy in Prague holding a planche on a lakeside railing with mountains behind him",
   },
   {
-    src: "/images/walking-green-flag-prague-mountains.jpg",
-    alt: "Walking green flag in Prague in a black T-shirt under autumn leaves in front of a snowy mountain",
+    src: "/images/funniest-guy-in-prague-mountains.jpg",
+    alt: "The funniest guy in Prague in a black T-shirt under autumn leaves in front of a snowy mountain",
   },
   {
-    src: "/images/walking-green-flag-prague-microphone.jpg",
-    alt: "The walking green flag in Prague in a black suit holding a CNN Prima News microphone",
+    src: "/images/funniest-guy-in-prague-microphone.jpg",
+    alt: "The funniest guy in Prague in a black suit holding a CNN Prima News microphone",
   },
 ];
